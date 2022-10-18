@@ -1,0 +1,4 @@
+{
+    "reactIntlLinter.intlConfigPath": "src/intl",
+    "reactIntlLinter.intlCode": "react-intl",
+}

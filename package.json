@@ -1,0 +1,138 @@
+{
+	"name": "react-intl-linter",
+	"version": "2.0.1",
+	"publisher": "styx11",
+	"description": "vscode linter extension for react-intl",
+	"repository": "git@github.com:Styx11/react-intl-linter.git",
+	"author": "styx11 <1654630248@qq.com>",
+	"license": "Apache-2.0 License",
+	"private": true,
+	"categories": [],
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"icon": "react-intl-linter.icon.png",
+	"activationEvents": [
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact",
+		"onLanguage:javascriptreact",
+		"onLanguage:javascript",
+		"onLanguage:html",
+		"onLanguage:vue"
+	],
+	"contributes": {
+		"configurationDefaults": {
+			"[json]": {
+				"editor.insertSpaces": true,
+				"editor.tabSize": 4,
+				"editor.autoIndent": "none"
+			}
+		},
+		"configuration": {
+			"type": "object",
+			"title": "ReactIntlLinter",
+			"properties": {
+				"reactIntlLinter.localLanguage": {
+					"type": "string",
+					"default": "zh",
+					"enum": [
+						"zh",
+						"en",
+						"jp",
+						"cht"
+					],
+					"enumDescriptions": [
+						"中文",
+						"英文",
+						"日文",
+						"繁体中文"
+					],
+					"markdownDescription": "本地语言，即代码中使用的本地语言"
+				},
+				"reactIntlLinter.localLanguageConfigName": {
+					"type": "string",
+					"default": "zh_CN",
+					"markdownDescription": "本地语言配置文件名（不包括后缀）"
+				},
+				"reactIntlLinter.intlLanguage": {
+					"type": "array",
+					"default": [
+						"en"
+					],
+					"items": {
+						"type": "string",
+						"enum": [
+							"zh",
+							"en",
+							"jp",
+							"cht"
+						],
+						"enumDescriptions": [
+							"中文",
+							"英文",
+							"日文",
+							"繁体中文"
+						]
+					},
+					"markdownDescription": "国际化语言，即支持的 react-intl 国际化目标语言"
+				},
+				"reactIntlLinter.intlLanguageConfigName": {
+					"type": "array",
+					"default": [
+						"en_US"
+					],
+					"items": {
+						"type": "string"
+					},
+					"markdownDescription": "国际化语言配置文件名数组（不包括后缀，**必须与国际化语言数组配置一一对应**）"
+				},
+				"reactIntlLinter.intlConfigPath": {
+					"type": "string",
+					"default": "src/intl",
+					"markdownDescription": "国际化配置文件夹路径名，例如 `src/intl`（相对于工作区跟路径）"
+				},
+				"reactIntlLinter.intlCode": {
+					"type": "string",
+					"default": "react-intl",
+					"enum": [
+						"react-intl",
+						"vue-i18n"
+					],
+					"markdownDescription": "期望转换的国际化框架，支持 `react-intl`，`vue-i18n`。\n`react-intl` 对应代码为 `intl.formatMessage({id: ...})` ，`vueI18n` 对应代码为 `$t('id')`"
+				}
+			}
+		}
+	},
+	"capabilities": {
+		"codeActionProvider": true
+	},
+	"main": "client/out/extension",
+	"scripts": {
+		"vscode:prepublish": "yarn compile",
+		"compile": "rimraf server/out && rimraf client/out && tsc -b",
+		"watch": "tsc -b -w",
+		"lint": "npm run lint:client && npm run lint:server",
+		"lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
+		"lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
+		"clean": "rimraf client/out && rimraf server/out",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd .."
+	},
+	"devDependencies": {
+		"@types/node": "^14.17.8",
+		"@typescript-eslint/parser": "^4.29.0",
+		"eslint": "^7.32.0",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.3.5"
+	},
+	"__metadata": {
+		"id": "60caa63f-b59d-4606-b78e-7fdcd6d42f04",
+		"publisherId": "e5fe1c83-3512-4450-9811-2162642afde9",
+		"publisherDisplayName": "styx11",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1664336087430
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"name": "client",
+	"displayName": "React-Intl-Linter - Client",
+	"version": "2.0.1",
+	"description": "vscode linter extension for react-intl",
+	"repository": "git@github.com:Styx11/react-intl-linter.git",
+	"author": "styx11 <1654630248@qq.com>",
+	"license": "Apache-2.0 License",
+	"private": true,
+	"bugs": {
+		"url": "https://github.com/Styx11/react-intl-linter/issues"
+	},
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"devDependencies": {
+		"@types/blueimp-md5": "^2.18.0",
+		"@types/uuid": "^8.3.1",
+		"@types/vscode": "1.52.0"
+	},
+	"dependencies": {
+		"axios": "^0.21.4",
+		"blueimp-md5": "^2.18.0",
+		"snake-case": "^3.0.4",
+		"uuid": "^8.3.2",
+		"vscode-languageclient": "^7.0.0"
+	}
+}

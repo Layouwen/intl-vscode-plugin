@@ -1,0 +1,24 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2019",
+		"lib": ["ES2019"],
+		"outDir": "out",
+		"rootDir": "src",
+		"resolveJsonModule": true,
+		"sourceMap": true
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"node_modules",
+		"package-lock.json",
+		"package.json"
+	],
+	"references": [
+		{ "path": "./client" },
+		{ "path": "./server" }
+	]
+}
