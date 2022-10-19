@@ -10,6 +10,7 @@ export const enum IntlCodeType
 {
 	REACT_INTL = 'react-intl',
 	VUE_I18N = 'vue-i18n',
+	REACT_I18N = 'react-i18n'
 }
 
 // 配置项目，与 package.json 保持一致

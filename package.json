@@ -96,7 +96,8 @@
 					"default": "react-intl",
 					"enum": [
 						"react-intl",
-						"vue-i18n"
+						"vue-i18n",
+						"react-i18n"
 					],
 					"markdownDescription": "期望转换的国际化框架，支持 `react-intl`，`vue-i18n`。\n`react-intl` 对应代码为 `intl.formatMessage({id: ...})` ，`vueI18n` 对应代码为 `$t('id')`"
 				}

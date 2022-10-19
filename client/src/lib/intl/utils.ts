@@ -8,6 +8,7 @@ const LinterCode: { [key in IntlCodeType]: (intlId: string) => string } = {
 		// intlId: string
 	) => `intl.formatMessage({ id: 'page.${gobleQuery.query}' })`,
 	[IntlCodeType.VUE_I18N]: (intlId: string) => `$t('${intlId}')`,
+	[IntlCodeType.REACT_I18N]: () => `t('page.${gobleQuery.query}')`,
 }
 
 const LinterCodeWithParams: { [key in IntlCodeType]: (intlId: string, params: SpecialStringParams[]) => string } = {
@@ -15,6 +16,8 @@ const LinterCodeWithParams: { [key in IntlCodeType]: (intlId: string, params: Sp
 		(intlId: string, params: SpecialStringParams[]) => `intl.formatMessage({ id: 'page.${intlId}' }, ${specialStringParams2String(params)})`,
 	[IntlCodeType.VUE_I18N]:
 		(intlId: string, params: SpecialStringParams[]) => `$t('${intlId}', ${specialStringParams2String(params)})`,
+	[IntlCodeType.REACT_I18N]:
+		(intlId: string, params: SpecialStringParams[]) => `t('page.${intlId}', ${specialStringParams2String(params)})`,
 }
 
 /**
